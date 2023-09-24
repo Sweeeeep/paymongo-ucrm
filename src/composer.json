@@ -1,0 +1,21 @@
+{
+    "name": "sweeeeep/paymongo-ucrm",
+    "description": "PayMongo Payment Gateway Plugin for UCRM",
+    "require": {
+        "ubnt/ucrm-plugin-sdk": "^0.9.0",
+        "php-di/php-di": "^7.0",
+        "illuminate/http": "^10.24",
+        "guzzlehttp/guzzle": "^7.8"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Sweeeeep\\PaymongoUcrm\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Raeywen Regachuelo"
+        }
+    ]
+}
