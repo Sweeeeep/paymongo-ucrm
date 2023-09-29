@@ -4,7 +4,7 @@ namespace Sweeeeep\PaymongoUcrm\Data;
 
 class PluginData extends UcrmData{
 
-    public $isPaymongoLive;
+    public $isSandboxMode;
 
     public $paymongoTestSecretKey;
 
@@ -16,6 +16,8 @@ class PluginData extends UcrmData{
 
     public $semaphoreSenderName;
 
-    public $isSandboxMode;
-    
+    public $webhookId = null;
+
+    public $webhookSecretKey = null;
+
 }

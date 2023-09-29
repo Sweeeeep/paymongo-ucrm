@@ -20,6 +20,7 @@ class OptionManager {
         $options = array_merge(
             $this->getDataFromJson(self::UCRM_JSON),
             $this->getDataFromJson(self::CONFIG_JSON),
+            $this->getDataFromJson(self::WEBHOOK_JSON)
         );
 
         $this->optionsData = new PluginData();

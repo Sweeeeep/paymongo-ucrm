@@ -15,5 +15,49 @@
       "max": null
     },
     "author": "Raeywen Regachuelo"
+  },
+  "configuration": [
+    {
+      "key": "isSandboxMode",
+      "label": "Sandbox Mode",
+      "description": "",
+      "required" : 1
+    },
+    {
+      "key": "paymongoTestSecretKey",
+      "label": "Paymongo Test Secret Key",
+      "description": "",
+      "required" : 0
+    },
+    {
+      "key": "paymongoLiveSecretKey",
+      "label": "Paymongo Live Secret Key",
+      "description": "",
+      "required" : 0
+    },
+    {
+      "key": "isSemaphoreEnable",
+      "label": "Semaphore Enable",
+      "description": "",
+      "required" : 1
+    },
+    {
+      "key": "semaphoreApiKey",
+      "label": "Semaphore API Key",
+      "description": "",
+      "required" : 0
+    },
+    {
+      "key": "semaphoreSenderName",
+      "label": "Semaphore Sender Name",
+      "description": "",
+      "required" : 0
+    }
+  ],
+  "paymentButton": {
+    "label" : "Paymongo",
+    "urlParameters": {
+      "action": "paymongo-payment"
+    }
   }
 }

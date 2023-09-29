@@ -8,24 +8,32 @@ abstract class AbstractPaymongoService {
 
     protected $secretKey;
 
-    protected $client;
+    protected $httpClient;
     
     protected $optionManager;
+
+    const BASE_URI = 'https://api.paymongo.com';
+
+    const API_VERSION = 'v1';
 
     public function __construct(OptionManager $optionManager)
     {
         $this->optionManager = $optionManager->load();
-        $this->client = new \GuzzleHttp\Client([
-            'base_uri' => 'https://api.paymongo.com/v1/',
+        $this->httpClient = new \GuzzleHttp\Client([
+            'base_uri' => self::BASE_URI . "/" . self::API_VERSION . "/",
             'auth' => [
-                $this->optionManager->isPaymongoLive ? $this->optionManager->paymongoLiveSecretKey : $this->optionManager->paymongoTestSecretKey, ''
+                $this->optionManager->isSandboxMode ? $this->optionManager->paymongoLiveSecretKey : $this->optionManager->paymongoTestSecretKey, ''
             ]
         ]);
     }
 
-    public function command(string $endpoint, string $method, array $data){
+    public function command(string $endpoint, string $method, array $data = []){
         try{
-            $request = $this->client->request($method, $endpoint, $data);
+            $request = $this->httpClient->request($method, $endpoint, [
+                'data' => [
+                    'attributes' => $data
+                ]
+            ]);
         }catch(\Exception $e){
             switch ($e->getCode()) {
                 case '401':
@@ -41,11 +49,7 @@ abstract class AbstractPaymongoService {
                     break;
             }
         }
-        // dd(json_decode((string) $request->getBody(), true));
         return json_decode((string) $request->getBody(), true);
     }
     
-    public function handleErrorResponse($body, $code, $url){
-    
-    }
 }
