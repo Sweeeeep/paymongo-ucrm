@@ -78,13 +78,12 @@ class Plugin {
 
     public function processPluginHooks($type){
         switch ($type) {
-            case 'configure':
-                return $this->paymongoWebhookService->createWebhook();
-                break;
             case 'enable':
+                $this->pluginLogManager->appendLog('Hook Enable');
                 return $this->paymongoWebhookService->enableWebhook();
                 break;
             case 'disable':
+                $this->pluginLogManager->appendLog('Hook Disable');
                 return $this->paymongoWebhookService->disableWebhook();
                 break;
             default:

@@ -1,15 +1,11 @@
 {
-  "version": "1.1",
+  "version": "1",
   "information": {
     "name": "paymongo-ucrm",
     "displayName": "Paymongo UCRM",
     "description": "PayMongo Payment Gateway Plugin for UCRM",
     "url": "https://github.com/Sweeeeep/paymongo-ucrm",
     "version": "1.0.0",
-    "ucrmVersionCompliancy": {
-      "min": "2.14.0-beta4",
-      "max": null
-    },
     "unmsVersionCompliancy": {
       "min": "2.1.0",
       "max": null
@@ -21,7 +17,8 @@
       "key": "isSandboxMode",
       "label": "Sandbox Mode",
       "description": "",
-      "required" : 1
+      "required" : 1,
+      "type": "checkbox"
     },
     {
       "key": "paymongoTestSecretKey",
@@ -39,7 +36,8 @@
       "key": "isSemaphoreEnable",
       "label": "Semaphore Enable",
       "description": "",
-      "required" : 1
+      "required" : 0,
+      "type": "checkbox"
     },
     {
       "key": "semaphoreApiKey",

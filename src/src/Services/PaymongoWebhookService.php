@@ -34,7 +34,11 @@ class PaymongoWebhookService extends AbstractPaymongoService {
     }
     
     public function enableWebhook(){
-        return $this->httpClient->request('POST', self::URI . '/' . $this->optionManager->webhookId . '/disable');
+        if($this->optionManager->webhookId == null && $this->optionManager->webhookSecretKey == null){
+            $response = $this->createWebhook();
+            $webhookId = $response['data']['id'];
+        }
+        return $this->httpClient->request('POST', self::URI . '/' . $webhookId ?? $this->optionManager->webhookId . '/enable');
     }
 
     public function disableWebhook(){

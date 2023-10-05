@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Sweeeeep\PaymongoUcrm\Service;
+namespace Sweeeeep\PaymongoUcrm\Services;
 
 use Sweeeeep\PaymongoUcrm\Data\PaymentTokenData;
 
